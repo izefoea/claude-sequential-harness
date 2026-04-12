@@ -86,7 +86,7 @@ jobs:
               const issue = await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title: `claude action reachability test newnew ${i}`,
+                title: `claude action reachability test ${i}, what's happening`,
                 body: ""
               });
 
