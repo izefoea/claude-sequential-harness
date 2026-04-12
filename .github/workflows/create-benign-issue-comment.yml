@@ -18,15 +18,14 @@ jobs:
           github-token: ${{ secrets.MY_PAT }}
           script: |
             const commands = [
-              "clear ; echo helloworld1",
-              "clear && echo helloworld2",
-              "clear || echo helloworld3",
-              "clear $(echo helloworld4)",
-              "clear `echo helloworld5`",
-              "clear \" && echo helloworld6 #",
-              "clear '; echo helloworld7; #",
-              "clear | echo helloworld8",
-              "clear ; echo${IFS}helloworld9"
+              "printf ok test",
+              "echo hello",
+              "printf ok test && echo hello",
+              "printf ok test ; echo hello",
+              "printf ok test | cat",
+              "printf ok test $(echo hello)",
+              "printf ok test `echo hello`",
+              "printf ok test ; echo${IFS}hello",
             ];
 
             const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -92,7 +91,7 @@ jobs:
               const issue = await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title: `claude action reachability test ${i + 20}`,
+                title: `claude action reachability test new ${i}`,
                 body: ""
               });
 
