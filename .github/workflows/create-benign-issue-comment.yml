@@ -20,12 +20,6 @@ jobs:
             const commands = [
               "printf ok test",
               "echo hello",
-              "printf ok test && echo hello",
-              "printf ok test ; echo hello",
-              "printf ok test | cat",
-              "printf ok test $(echo hello)",
-              "printf ok test `echo hello`",
-              "printf ok test ; echo${IFS}hello",
             ];
 
             const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
