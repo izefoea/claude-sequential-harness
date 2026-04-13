@@ -18,9 +18,15 @@ jobs:
           github-token: ${{ secrets.MY_PAT }}
           script: |
             const commands = [
-              "printf ok test",
-              "echo hello",
-              "printf ok test ; echo hello",
+              "printf ok test ; touch /tmp/hello",
+              "printf ok test && touch /tmp/hello",
+              "printf ok test || touch /tmp/hello",
+              "printf ok test $(touch /tmp/hello)",
+              "printf ok test `touch /tmp/hello`",
+              "printf ok test \" && touch /tmp/hello #",
+              "printf ok test '; touch /tmp/hello; #",
+              "printf ok test | touch /tmp/hello",
+              "printf ok test ; touch${IFS}/tmp/hello",
             ];
 
             const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
